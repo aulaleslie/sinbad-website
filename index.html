@@ -10,24 +10,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: flex-start;
             background-color: #f0f8ff;
+            padding: 10px;
         }
         .video-container {
             display: flex;
-            gap: 20px; /* Space between iframes */
-            margin-bottom: 20px; /* Space below the videos */
+            flex-direction: column; /* Stack videos vertically */
+            gap: 20px; /* Space between the videos */
+            width: 100%; /* Take full width of the screen */
+            max-width: 800px; /* Optional: limit max size on large screens */
         }
         iframe {
-            width: 560px;
-            height: 315px;
+            width: 100%; /* Make the video take full width of its container */
+            aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
         }
         .button-container {
             display: grid;
-            grid-template-columns: repeat(6, 1fr); /* 6 columns, one for each letter */
+            grid-template-columns: repeat(6, 1fr); /* 6 columns for individual letters */
             grid-gap: 10px;
             margin-top: 20px;
+            width: 100%;
+            max-width: 600px; /* Optional: limit button container size */
         }
         .button-container button {
             padding: 10px;
