@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinbad Audio & Videos</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+        }
+        .video-container {
+            display: flex;
+            gap: 20px; /* Space between iframes */
+            margin-bottom: 20px; /* Space below the videos */
+        }
+        iframe {
+            width: 560px;
+            height: 315px;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 columns, one for each letter */
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button-container .full {
+            grid-column: span 6; /* Span across all 6 columns */
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/52L23avITUQ?si=9G_Z7vPAlHbTh5Ce" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+        <iframe 
+            src="https://www.youtube.com/embed/OIvW2tSjfXk?si=792NZfr5-jBLgsLm" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="button-container">
+        <button onclick="playAudio('s')">S</button>
+        <button onclick="playAudio('i')">I</button>
+        <button onclick="playAudio('n')">N</button>
+        <button onclick="playAudio('b')">B</button>
+        <button onclick="playAudio('a')">A</button>
+        <button onclick="playAudio('d')">D</button>
+        <button class="full" onclick="playAudio('sinbad')">SINBAD</button>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script>
+        function playAudio(letter) {
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = `${letter}.mp3`;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
